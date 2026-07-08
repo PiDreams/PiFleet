@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RemotePi</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar">
+      <div class="brand">
+        <div class="brand-mark">R</div>
+        <div>
+          <div class="brand-name">RemotePi</div>
+          <div class="brand-sub">Fleet console</div>
+        </div>
+      </div>
+
+      <nav class="nav">
+        <a class="nav-item active" href="/">Dashboard</a>
+        <a class="nav-item" href="/terminal.html">Terminal</a>
+        <a class="nav-item" href="#files">Files</a>
+        <a class="nav-item" href="#docker">Docker</a>
+        <a class="nav-item" href="#updates">Updates</a>
+        <a class="nav-item" href="#settings">Settings</a>
+      </nav>
+
+      <div class="sidebar-card">
+        <div class="sidebar-label">Fleet health</div>
+        <div class="sidebar-value" id="fleetHealth">Loading…</div>
+        <div class="sidebar-meta" id="lastRefresh">—</div>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div>
+          <h1>Dashboard</h1>
+          <p>Monitor and manage your Raspberry Pi fleet in real time.</p>
+        </div>
+
+        <div class="topbar-actions">
+          <input id="search" class="search" type="search" placeholder="Search devices…" />
+          <button class="btn ghost" id="refreshBtn" type="button">Refresh</button>
+          <button class="btn primary" id="loginStatus" type="button">Sign in</button>
+        </div>
+      </header>
+
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-label">Total Pis</div>
+          <div class="stat-value" id="totalPis">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Online</div>
+          <div class="stat-value success" id="onlinePis">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Offline</div>
+          <div class="stat-value danger" id="offlinePis">0</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Avg CPU</div>
+          <div class="stat-value" id="avgCpu">0%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Avg RAM</div>
+          <div class="stat-value" id="avgRam">0%</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Avg Temp</div>
+          <div class="stat-value" id="avgTemp">0°C</div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <div class="panel-head">
+          <div>
+            <h2>Devices</h2>
+            <p>Live inventory of your fleet.</p>
+          </div>
+          <div class="panel-actions">
+            <span class="pill" id="deviceCount">0 devices</span>
+          </div>
+        </div>
+
+        <div id="devices" class="device-grid"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/app.js"></script>
+</body>
+</html>
